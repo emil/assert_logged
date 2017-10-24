@@ -1,0 +1,50 @@
+# === Development Logging (log4r) configuration. ===
+#
+# Overrides the default Rails logger (named 'rails') with the daily logger
+# (changes the log file daily).
+#
+# The development logger configuration. Rails log goes to the file and the
+# application logs go to file and the stdout.
+#
+log4r_config:
+  pre_config:
+    custom_levels:
+      - DEBUG
+      - INFO
+      - AUDIT
+      - WARN
+      - ERROR
+      - FATAL
+    global:
+      level: DEBUG
+    root  :
+      level: DEBUG
+  # define all loggers.
+  loggers:
+    - name      : bugs_app
+      level     : DEBUG
+      additive  : 'false'
+      trace     : 'false'
+      outputters:
+        - logdatefile
+        - logstdout
+  # define all outputters (incl. formatters)
+  outputters:
+    - type        : DateFileOutputter
+      name        : logdatefile
+      level       : DEBUG
+      date_pattern: '%Y%m%d'
+      trunc       : 'false'
+      dirname    : "#{Rails.root}/log"
+      filename    : "#{Rails.env}.log"
+      formatter   :
+        date_pattern: '%Y-%m-%d %Z %H:%M:%S'
+        pattern     : '%d %l: %m'
+        type        : PatternFormatter
+    - type        : StdoutOutputter
+      name        : logstdout
+      level       : DEBUG
+      formatter   :
+        date_pattern: '%Y-%m-%d %Z %H:%M:%S'
+        pattern     : '%d %l: %m'
+        type        : PatternFormatter
