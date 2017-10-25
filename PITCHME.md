@@ -88,7 +88,6 @@ Test that verifies **permit/deny** parameters log emitted
   
 ```
 ---
----
 Test failed example
 ``` shell
 
