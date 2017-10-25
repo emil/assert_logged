@@ -7,7 +7,6 @@ http://github.com/emil/assert_logged
 ### Purpose
 Integrated Log testing within Unit/Functional/Integration tests.
 ---
-## Implemented
 * Small code (one ruby module)
 * Follows the familiar assertion design *assert_select, assert_difference do ... end* 
 ---
