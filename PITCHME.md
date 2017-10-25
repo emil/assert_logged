@@ -26,7 +26,6 @@ Integrated Log testing within Unit/Functional/Integration tests.
 end
 ```
 ---
----
 (or assert_not_logged...)
 ``` ruby
  assert_not_logged(/Bug was successfully changed/) do
@@ -101,8 +100,6 @@ bin/rails test test/controllers/bugs_controller_test.rb:51
 Finished in 0.514606s, 15.5459 runs/s, 44.6944 assertions/s.
 8 runs, 23 assertions, 1 failures, 0 errors, 0 skips
 ```
----
-
 ---
 
 # Thank you
