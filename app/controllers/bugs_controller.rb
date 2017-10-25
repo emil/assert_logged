@@ -28,9 +28,7 @@ class BugsController < ApplicationController
 
     respond_to do |format|
       if @bug.save
-        msg = 'Bug was successfully created.'
-        logger.info msg
-        format.html { redirect_to @bug, notice: msg }
+        format.html { redirect_to @bug, notice: 'Bug was successfully created.' }
         format.json { render :show, status: :created, location: @bug }
       else
         format.html { render :new }
@@ -44,9 +42,7 @@ class BugsController < ApplicationController
   def update
     respond_to do |format|
       if @bug.update(bug_params)
-        msg = 'Bug was successfully created.'
-        logger.info msg
-        format.html { redirect_to @bug, notice: msg }
+        format.html { redirect_to @bug, notice: 'was successfully updated.' }
         format.json { render :show, status: :ok, location: @bug }
       else
         format.html { render :edit }
