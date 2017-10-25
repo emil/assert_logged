@@ -1,16 +1,16 @@
 ---
 
-*assert_logged*
+# *assert_logged*
 
 http://github.com/emil/assert_logged
 ---
-Purpose
+# Purpose
 Integrated Log testing within Unit/Functional/Integration tests.
 ---
-Small code (one ruby module)
-Follows the familiar assertion design *assert_select, assert_difference do ... end* 
+* Small code (one ruby module)
+* Follows the familiar assertion design *assert_select, assert_difference do ... end* 
 ---
-General idea
+# General idea
 - Assert the enclosed block emits the log.
 - Start/End block *defines* the beg/end of the log lines to consider
 - Run Regexp/String matches against the log section
@@ -106,7 +106,7 @@ Finished in 0.514606s, 15.5459 runs/s, 44.6944 assertions/s.
 
 ---
 
-Thank you
+# Thank you
 (http://github.com/emil/assert_logged)
 Emil Marcetta
 ---
