@@ -53,15 +53,11 @@ end
 Test that verifies record *create* log emitted
 ``` ruby
   test "should create bug" do
-  
     assert_difference('Bug.count') do
       
-      assert_logged(/Bug was successfully created/, Log4r::INFO) do
-      
+      assert_logged(/Bug#\d+ was successfully created/, Log4r::INFO) do
         post bugs_url, params: { bug: { description: @bug.description, status: @bug.status, title: @bug.title } }
-      
       end
-    
     end
 
     assert_redirected_to bug_url(Bug.last)
@@ -73,7 +69,7 @@ Test that verifies **permit/deny** parameters log emitted
   test "should deny not permitted parameters" do
     assert_difference('Bug.count') do
       
-      assert_logged(['Bug was successfully created',
+      assert_logged([/Bug#\d+ was successfully created/,
                      'Unpermitted parameter: :bad_param']) do
         post bugs_url, params: { bug: { bad_param: 'value', description: @bug.description, status: @bug.status, title: @bug.title } }
       end
