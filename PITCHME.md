@@ -46,6 +46,16 @@ class Bug < ApplicationRecord
   
 end
 ```
+
+``` shell
+2017-10-24 PDT 17:22:45 DEBUG:    (0.1ms)  SAVEPOINT active_record_1
+2017-10-24 PDT 17:22:45 INFO: Bug#980190962 was successfully updated. <--
+2017-10-24 PDT 17:22:45 DEBUG:    (0.1ms)  RELEASE SAVEPOINT active_record_1
+2017-10-24 PDT 17:22:45 INFO: Redirected to http://www.example.com/bugs/980190962
+2017-10-24 PDT 17:22:45 INFO: Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+```
+
 ---
 
 Test that verifies record *create* log emitted
@@ -103,6 +113,6 @@ Finished in 0.514606s, 15.5459 runs/s, 44.6944 assertions/s.
 ---
 
 # Thank you
-(http://github.com/emil/assert_logged)
-Emil Marcetta
+* (http://github.com/emil/assert_logged)
+* Emil Marcetta
 ---
