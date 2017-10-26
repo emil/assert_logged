@@ -2,7 +2,7 @@
 
 ### *assert_logged*
 
-http://github.com/emil/assert_logged
+https://github.com/emil/assert_logged
 ---
 ### Purpose
 Integrated Log testing within Unit/Functional/Integration tests.
@@ -88,6 +88,23 @@ Test that verifies **permit/deny** parameters log emitted
   
 ```
 ---
+Test that verifies the specific SQL statement
+``` ruby
+  test "sql uses limit 1" do
+      
+    assert_logged('SELECT `orders`.`created_at` FROM `orders` ORDER BY created_at DESC LIMIT 1') do
+      get order_url ...
+    end
+  end
+  
+```
+
+``` shell
+2017-10-25 PDT 15:43:16 DEBUG:    (0.2ms)  RELEASE SAVEPOINT active_record_1
+2017-10-25 PDT 15:43:16 DEBUG:   SQL (0.3ms)  SELECT `transaction_summaries`.`created_at` FROM `transaction_summaries` ORDER BY created_at DESC LIMIT 1
+506147-2017-10-25 PDT 15:43:16 DEBUG:    (0.4ms)  ROLLBACK
+```
+---
 Test failed example
 ``` shell
 
@@ -110,7 +127,6 @@ Finished in 0.514606s, 15.5459 runs/s, 44.6944 assertions/s.
 8 runs, 23 assertions, 1 failures, 0 errors, 0 skips
 ```
 ---
-
 # Thank you
 * (http://github.com/emil/assert_logged)
 * Emil Marcetta
